@@ -1,0 +1,42 @@
+/*
+[  author ] ;- Muhammed alaraby
+[  Date   ] ;- 19/10/19
+[  Info   ] ;- main sass preprocessor style
+*/
+@import 'config';
+
+
+// Body
+body{
+    font-size: $medium-font-size;
+    background:$light-color;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.5rem;
+}
+
+
+// Header
+
+.paragraph{
+    color:#f70073;
+    background-color: #ccc;
+    font-size: 3rem;
+    text-align: center;
+}
+#header{
+    position: relative;
+    #Secondbox{
+        background: #ff0000;
+        width: 10px;
+        height: 100px;
+        position: absolute;
+    }
+  
+}
+
+.secondbox{
+    background: #ff0000;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+}

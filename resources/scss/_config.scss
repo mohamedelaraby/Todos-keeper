@@ -1,0 +1,44 @@
+
+//Core Attributes
+*{
+    padding: 0;
+    margin: 0;
+}
+
+
+
+
+
+
+// Main Scales
+$website-width: 1280px;
+$main-font-size:62.50%;
+$medium-font-size:1.8rem;
+$larg-font-size:2rem;
+
+//Main Colors
+$primary-color:#fff;
+$main-color:#ffbc00;
+$light-color:#f4f4f4;
+$medium-color:#ccc;
+$dark-color:#333;
+$lightblue-color:#008ed6;
+
+//Main Fonts
+$primary-font: 'Dosis', sans-serif;
+$secondary-font:'Merriweather Sans', sans-serif;
+
+ // Set Text Color
+ @function set-text-color($color){
+    @if(lightness($color) > 50) {
+        @return $dark-color;
+    } @else {
+        @return $primary-color;
+    }
+ }
+
+
+ // HTML
+html{
+    font-size: $main-font-size;
+}
