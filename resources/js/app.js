@@ -60,6 +60,9 @@ function addTask(event){
    // Append the li to the ul
   taskList.appendChild(li);
 
+  // Store in local storage
+  storeTasksInLocalStorage();
+
   // Clear the input
   taskInput.value = '';
 
@@ -67,6 +70,17 @@ function addTask(event){
    event.preventDefault();
 }
 
+// Store tasks in  local storage
+function storeTasksInLocalStorage(task){
+   
+   let tasks;
+   if (localStorage.getItem('tasks') === null) {
+      tasks = []; 
+      
+   } else {
+      tasks = JSON.parse(localStorage.getItem('tasks'));
+   }
+}
 
 
 // Remove task
