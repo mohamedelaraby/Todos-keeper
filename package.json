@@ -9,6 +9,7 @@
   "author": "Muhammad Alaraby",
   "license": "MIT",
   "dependencies": {
+    "jshint": "^2.10.2",
     "live-server": "^1.2.1",
     "nodemon": "^1.19.3"
   }
