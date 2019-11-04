@@ -24,13 +24,25 @@ loadEventsListener();
 function loadEventsListener(){
 
    //Listen for submit 
-   loanForm.addEventListener('submit', calculateResults);
+   loanForm.addEventListener('submit', function(e){
+      // Hide results
+      document.getElementById('results').style.display = 'none';
+      
+      // Show loader
+      document.getElementById('loading').style.display = 'block';
+ 
+      setTimeout(calculateResults, 2000);
+
+
+   // Prevent the default behavior
+   e.preventDefault();
+   });
 }
 
 ///////// [ Events Listeners functions ] ///////////////////////////////////
 
 // calculate the results
-function calculateResults(e){
+function calculateResults(){
 
    // Calculations details
    const principal = parseFloat(amount.value),
@@ -47,21 +59,30 @@ function calculateResults(e){
       monthlyPayment.value = monthly.toFixed(2);
       totalPayment.value = (monthly * finalPayment).toFixed(2);
       totalInterest.value = ((monthly * finalPayment) - principal).toFixed(2);
+      
+      // Show results ui
+      document.getElementById('results').style.display = 'block';
+      document.querySelector('#loading').style.display = 'none';
+
    } else {
       showError(' Please check your numbers');
    }
    
    
-   // Prevent the default behavior
-   e.preventDefault();
+
 }
 
 
 // Display errors
 function showError(error){
 
+   // Hide results and loader
+   document.getElementById('results').style.display = 'none';
+   document.getElementById('loading').style.display = 'none';
+
+
     // Get error position element
-    const card = document.querySelector('.card'),
+ const card = document.querySelector('.card'),
           heading = document.querySelector('.heading');
 
 

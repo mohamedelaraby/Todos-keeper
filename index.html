@@ -21,7 +21,13 @@
     <link rel="stylesheet" href="./vendors/css/bootstrap.min.css">
     <link rel="stylesheet" href="/dist/css/main.css">
 
+   <style>
    
+   #loading, #results{
+       display: none;
+   }
+
+   </style>
 
     <!-- [ Website title ] -->
     <title>Loan Calculator</title>
@@ -32,7 +38,7 @@
             <div class="row">
                 <div class="col-md-6 mx-auto">
                     <div class="card card-body text-center mt-5">
-                        <div class="heading display-4 p-2">
+                        <div class="heading display-4 p-3">
                             Loan Calculator
                         </div>
                         <form id="loan-form">
@@ -66,9 +72,9 @@
                             <input type="submit" value="Calculate" class="btn btn-block btn-dark">
                         </form>
                         <!-- Loader here -->
-                        <!-- <div id="loading">
+                        <div id="loading">
                             <img src="./resources/img/loading.gif" alt="loader">
-                        </div> -->
+                        </div>
 
                         <!-- Result here -->
                         <div id="results" class="pt-4">

@@ -10,24 +10,3 @@ body {
   background: #f4f4f4;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.5rem; }
-
-.paragraph {
-  color: #f70073;
-  background-color: #ccc;
-  font-size: 3rem;
-  text-align: center; }
-
-#header {
-  position: relative; }
-
-#header #Secondbox {
-  background: #ff0000;
-  width: 10px;
-  height: 100px;
-  position: absolute; }
-
-.secondbox {
-  background: #ff0000;
-  width: 100px;
-  height: 100px;
-  position: absolute; }
