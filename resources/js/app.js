@@ -1,23 +1,28 @@
- // Person constructor
- function Person(name,dateOfBirth){
-    this.name = name;
-    this.birthay = new Date(dateOfBirth);
-    
-    // calculate age
-    this.calculateAge = function(){
-       const diff = Date.now() - this.birthay.getTime();
-       const ageDate = new Date(diff);
-       return Math.abs(ageDate.getUTCFullYear() - 1970) ;
-    }
-
-   }
-
- // this outside the function it refers to the window object
-
-
  // Output
  const output = document.querySelector('.card-text');
 
- const name = new Person('ali','9-10-1980');
- output.innerHTML = name.birthay;
- output.innerHTML = name.calculateAge();
+//   // Number
+//   const num2 = 1;
+//   const num =  new Number(3);
+//   console.log(typeof num);
+
+//   // Boolean
+//   const bool = true;
+//   const bool2 =  new Boolean(false);
+//   console.log(typeof bool2); 
+
+//   const john = {
+//      name: 'john',
+//      age:34
+//   }
+
+//   output.innerHTML = john.age;
+
+//   const name = new Object({
+//      name:'ali',
+//      age:45
+//   })
+//   output.innerHTML = name.name;
+
+
+const re1 = /\w+/;
