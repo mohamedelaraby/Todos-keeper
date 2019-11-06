@@ -6,55 +6,41 @@
 // Object.prototype
 // Person.prototype
 
-// Person constructor
- function Person (firstName, lastName){
-    this.firstName = firstName;
-    this.lastName = lastName;
-}
+// Using Object.create
+ const personPrototype = {
+    greeting: function(){
+       return ` Hello there ${this.firstName} ${this.lastName}`;
+    },
+     getsMarried: function(newLastName){
+        this.lastName = newLastName;
+     }
+ }
 
-   // Calculate age
-   Person.prototype.calculateAge =  function(){
-      const diff =  Date.now() - this.birthDay.getTime();
-      const ageDate = new Date(diff);
-      return Math.abs(ageDate.getUTCFullYear() - 1970);
-   }
+ const mary =  Object.create(personPrototype);
 
-   // Get full name
-   Person.prototype.getFullName = function(){
-      return `${this.firstName} ${this.lastName}`;
-   };
+ mary.firstName = 'Mary';
+ mary.lastName = 'smith';
+ mary.age = 30;
+ console.log(mary);
+ mary.getsMarried('Thompson');
+ console.log(mary.greeting());
 
-   // Greeting
-   Person.prototype.greeting = function (){
-      return `Hello there ${this.firstName} ${this.lastName}`;
-   };
 
-   // Person object
-   const martin =  new Person('martin', 'Dain');
+ // Another way
+ const brad = Object.create(personPrototype, {
+   firstName:{value:'brad'},
+   lastName:{value:'traversy'}
+ });
 
-   // Customer constructor
-   function Customer(firstName, lastName,phone, membership){
-      // Inherite from Person constructor
-      Person.call(this, firstName, lastName);
+ console.log(brad);
 
-      // customer own properties
-      this.phone = phone;
-      this.membership = membership;
-   }
+ // Best way
+ const ali = Object.create(personPrototype, {
+   firstName:{value:'Ali'},
+   lastName:{value:'madara'}, 
+   username: {value: 'ali'},
+    email: {value:'ali.yahoo.com'},
+    age:{value:45},
+ });
 
-   // Create a Customer
-   const customer1 = new Customer('Tom','Smith', 
-                     '555-555-555','standerd');
-   
-   // Inherit the person prototype methods
-   Customer.prototype = Object.create(Person.prototype);
-
-   // Make customer.prototype return Customer()
-   Customer.prototype.constructor = Person;
-
-    // Create Customer own greeting method
-    Customer.prototype.sayHi = function(){
-      return `Hello there ${this.firstName} ${this.lastName}`;
-    };
-   
-   console.log(customer1.sayHi());
+ console.log(ali.greeting());
