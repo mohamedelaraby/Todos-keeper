@@ -22,12 +22,12 @@
    // Get full name
    Person.prototype.getFullName = function(){
       return `${this.firstName} ${this.lastName}`;
-   }
+   };
 
    // Greeting
    Person.prototype.greeting = function (){
       return `Hello there ${this.firstName} ${this.lastName}`;
-   }
+   };
 
    // Person object
    const martin =  new Person('martin', 'Dain');
@@ -43,5 +43,18 @@
    }
 
    // Create a Customer
-   const customer = new Customer('Tom','Smith', '555-555-555','standerd');
-   console.log(customer);
+   const customer1 = new Customer('Tom','Smith', 
+                     '555-555-555','standerd');
+   
+   // Inherit the person prototype methods
+   Customer.prototype = Object.create(Person.prototype);
+
+   // Make customer.prototype return Customer()
+   Customer.prototype.constructor = Person;
+
+    // Create Customer own greeting method
+    Customer.prototype.sayHi = function(){
+      return `Hello there ${this.firstName} ${this.lastName}`;
+    };
+   
+   console.log(customer1.sayHi());
