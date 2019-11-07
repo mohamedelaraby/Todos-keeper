@@ -54,12 +54,17 @@ UI.prototype.addBookToList = function (book){
    // Add text
    alertDiv.appendChild(document.createTextNode(message));
    // Get parent
-   const container = document.querySelector('.container');
+   const cardBody = document.querySelector('.card-body');
    // Get the form 
    const form = document.querySelector('#book-form');
 
    // Insert the alertDiv before the book form
-   container.insertBefore(alertDiv, form);
+   cardBody.insertBefore(alertDiv, form);
+
+   // TimeOut after 3 seconds
+   setTimeout(function(){
+      document.querySelector('.alert').remove();
+   }, 3000);
 
 };
 
@@ -102,6 +107,7 @@ const bookForm = document.querySelector('#book-form');
    } else {
       // Add book to list
       ui.addBookToList(book);
+      ui.showErrorAlert('Book added', 'alert-success');
 
       // Clear Fields
       ui.clearFields();
