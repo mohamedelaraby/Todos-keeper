@@ -26,12 +26,13 @@ UI.prototype.addBookToList = function (book){
    // [ row ];- new tr table element
    const row = document.createElement('tr');
 
+
    // Insert table columns
    row.innerHTML = `
       <td>${book.title}</td>
       <td>${book.author}</td>
       <td>${book.isbn}</td>
-      <td><a href="#"><i class="fas fa-times"></i></a></td>
+      <td><a class="delete-book"  href="#"><i class="fas fa-times "></i></a></td>
      
    `;
   
@@ -40,10 +41,6 @@ UI.prototype.addBookToList = function (book){
 
 };
 
-/* <div class="alert alert-success">
-                                    <strong>Success</strong> Blog post added
-                            </div>
-                         */
 
  // [ showErrorAlert ] :- show any error alert
  UI.prototype.showErrorAlert = function (message, className){
@@ -69,7 +66,13 @@ UI.prototype.addBookToList = function (book){
 };
 
 
- // [ clearFields ] :- empties book inputs fields
+// [ DeleteBook ] :- Delet a Book
+UI.prototype.deleteBook = function(){
+   document.querySelector('.delete-book').parentElement.parentElement.remove(); 
+   this.showErrorAlert('Book removed','alert-info');
+};
+
+ // [ clearFields ] :- Empties book inputs fields
  UI.prototype.clearFields = function (){
    document.getElementById('title').value = '';
    document.getElementById('author').value = '';
@@ -121,4 +124,17 @@ const bookForm = document.querySelector('#book-form');
    // prevent the default submit event
    e.preventDefault();
 });
+
+
+// Delete book event listener
+document.getElementById('book-list').addEventListener('click', function(e){
+
+ const ui = new UI();
+
+ ui.deleteBook(e.target);
+
+
+   e.preventDefault();
+});
+ 
 
