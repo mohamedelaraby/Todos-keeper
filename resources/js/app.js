@@ -39,6 +39,10 @@ UI.prototype.addBookToList = function (book){
    // Add book to books table
    list.appendChild(row);
 
+   //  Show confirmtion alert
+   this.showErrorAlert('Book added', 'alert-success');
+
+
 };
 
 
@@ -103,6 +107,7 @@ const bookForm = document.querySelector('#book-form');
    // [ ui ] :- Instantiate UI constructor
    const ui = new UI();
  
+   console.log(ui);
    // Validate form inputs
    if(titleInput === '' || authorInput === '' || isbnInput === ''){
       // Error alert
@@ -110,7 +115,6 @@ const bookForm = document.querySelector('#book-form');
    } else {
       // Add book to list
       ui.addBookToList(book);
-      ui.showErrorAlert('Book added', 'alert-success');
 
       // Clear Fields
       ui.clearFields();
@@ -131,7 +135,7 @@ document.getElementById('book-list').addEventListener('click', function(e){
 
  const ui = new UI();
 
- ui.deleteBook(e.target);
+  ui.deleteBook();
 
 
    e.preventDefault();
