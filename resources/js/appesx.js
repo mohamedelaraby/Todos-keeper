@@ -54,7 +54,6 @@ class UI {
 // [ deleteBook ] :- Delet a Book from the list
     deleteBook(){
         document.querySelector('.delete-book').parentElement.parentElement.remove(); 
-        Store.removeBook(document.querySelector('.delete-book').parentElement.parentElement);
         this.showErrorAlert('Book removed','alert-info');
     }
 
@@ -130,18 +129,17 @@ class Store {
     }
 
     // [ removeBook ] ;- remove books from local storage
-    static removeBook(element){
-            const books = Store.getBooks();
+    static removeBook(isbn){
+            let books = Store.getBooks();
 
             books.forEach(function(book, index){
-               if(book.textContent == element){
+               if(book.isbn === isbn){
                   books.splice(index,1);
+                  books = [];
                }
             });
 
             localStorage.setItem('books', JSON.stringify(books));
-
-
     }
 
 
@@ -205,6 +203,8 @@ document.getElementById('book-list').addEventListener('click', function(e){
 
  const ui = new UI();
   ui.deleteBook();
+
+  Store.removeBook(document.querySelector('.delete-book').parentElement.previousElementSibling.textContent);
 
 
    e.preventDefault();
