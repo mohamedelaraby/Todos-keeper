@@ -1,0 +1,17 @@
+/*
+[  author ] ;- Muhammed alaraby
+[  Date   ] ;- 19/10/19
+[  Info   ] ;- main sass preprocessor style
+*/
+* {
+  padding: 0;
+  margin: 0; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-size: 1.8rem;
+  background: #f4f4f4;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  line-height: 1.5rem; }
